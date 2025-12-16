@@ -2,7 +2,7 @@ services:
   onlyoffice-documentserver:
     build:
       context: .
-    image: onlyoffice/documentserver #[-de,-ee]
+    image: "onlyoffice/documentserver:${ONLYOFFICE_VERSION}" #[-de,-ee]
     container_name: onlyoffice-documentserver
     depends_on:
       - onlyoffice-postgresql
@@ -40,7 +40,7 @@ services:
        
   onlyoffice-rabbitmq:
     container_name: onlyoffice-rabbitmq
-    image: rabbitmq:3
+    image: "rabbitmq:${RABBITMQ_VERSION}"
     restart: always
     expose:
       - '5672'
@@ -53,7 +53,7 @@ services:
 
   onlyoffice-postgresql:
     container_name: onlyoffice-postgresql
-    image: postgres:15
+    image: "postgres:${POSTGRESQL_VERSION}"
     environment:
       - POSTGRES_DB=onlyoffice
       - POSTGRES_USER=onlyoffice
