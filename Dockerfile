@@ -5,6 +5,9 @@ ARG BASE_IMAGE=ubuntu:$BASE_VERSION
 FROM ${BASE_IMAGE} AS documentserver
 LABEL maintainer="Ascensio System SIA <support@onlyoffice.com>"
 
+deb https://mirrors.aliyun.com/ubuntu/ noble-backports main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble-backports main restricted universe multiverse
+
 ARG BASE_VERSION
 ARG PG_VERSION=16
 ARG PACKAGE_SUFFIX=t64
